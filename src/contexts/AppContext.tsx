@@ -24,21 +24,24 @@ interface Notification {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [apartmentName, setApartmentName] = useState(() =>
-    localStorage.getItem("nyumba_apartment_name") || "Amani Apartments"
-  );
-  const [caretakerCodes, setCaretakerCodes] = useState<string[]>(() => {
-    const saved = localStorage.getItem("nyumba_caretaker_codes");
-    return saved ? JSON.parse(saved) : ["344577"];
-  });
-  const [landlordCodes, setLandlordCodes] = useState<string[]>(() => {
-    const saved = localStorage.getItem("nyumba_landlord_codes");
-    return saved ? JSON.parse(saved) : ["6747"];
-  });
-  const [notifications, setNotifications] = useState<Notification[]>(() => {
-    const saved = localStorage.getItem("nyumba_notifications");
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [apartmentName, setApartmentName] = useState("Amani Apartments");
+  const [caretakerCodes, setCaretakerCodes] = useState<string[]>(["344577"]);
+  const [landlordCodes, setLandlordCodes] = useState<string[]>(["6747"]);
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [hydrated, setHydrated] = useState(false);
+
+  // Load persisted state after hydration (localStorage is browser-only).
+  useEffect(() => {
+    const name = localStorage.getItem("nyumba_apartment_name");
+    if (name) setApartmentName(name);
+    const caretaker = localStorage.getItem("nyumba_caretaker_codes");
+    if (caretaker) setCaretakerCodes(JSON.parse(caretaker));
+    const landlord = localStorage.getItem("nyumba_landlord_codes");
+    if (landlord) setLandlordCodes(JSON.parse(landlord));
+    const notifs = localStorage.getItem("nyumba_notifications");
+    if (notifs) setNotifications(JSON.parse(notifs));
+    setHydrated(true);
+  }, []);
 
   const managementCode = "0404";
 
