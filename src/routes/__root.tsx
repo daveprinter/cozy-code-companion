@@ -16,6 +16,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { AppProvider } from "@/contexts/AppContext";
+import { DataProvider } from "@/lib/domain/DataContext";
 
 function NotFoundComponent() {
   return (
@@ -140,10 +141,12 @@ function RootComponent() {
       <TooltipProvider>
         <AuthProvider>
           <AppProvider>
-            <Toaster />
-            <Sonner />
-            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-            <Outlet />
+            <DataProvider>
+              <Toaster />
+              <Sonner />
+              {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+              <Outlet />
+            </DataProvider>
           </AppProvider>
         </AuthProvider>
       </TooltipProvider>
