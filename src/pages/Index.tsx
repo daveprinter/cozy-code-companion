@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { ManagementPanel } from "@/components/ManagementPanel";
 import { Building2, ArrowRight } from "lucide-react";
@@ -31,13 +31,13 @@ const Index: React.FC = () => {
           </p>
           <div className="flex flex-col gap-3 w-full">
             <Button
-              onClick={() => navigate("/login")}
+              onClick={() => navigate({ to: "/login" })}
               className="h-14 text-lg font-semibold gradient-primary text-primary-foreground gap-2"
             >
               Log In <ArrowRight className="h-5 w-5" />
             </Button>
             <Button
-              onClick={() => navigate("/register")}
+              onClick={() => navigate({ to: "/register" })}
               variant="outline"
               className="h-14 text-lg font-semibold border-primary/30 text-primary hover:bg-accent"
             >

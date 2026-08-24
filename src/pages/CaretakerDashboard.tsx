@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { useAuth } from "@/contexts/AuthContext";
 import { useApp } from "@/contexts/AppContext";
 import { Button } from "@/components/ui/button";
@@ -41,7 +41,7 @@ const CaretakerDashboard: React.FC = () => {
 
   const handleLogout = async () => {
     await signOut();
-    navigate("/login");
+    navigate({ to: "/login" });
   };
 
   const handleAddCode = () => {

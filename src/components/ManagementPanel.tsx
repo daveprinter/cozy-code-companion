@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useApp } from "@/contexts/AppContext";
 import { useAuth } from "@/contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import { Menu, Shield, KeyRound } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -42,7 +42,7 @@ export const ManagementPanel: React.FC = () => {
       setRole(role);
       setOpen(false);
       resetState();
-      navigate(role === "caretaker" ? "/caretaker" : "/landlord");
+      navigate({ to: role === "caretaker" ? "/caretaker" : "/landlord" });
     } else {
       toast({ title: "Invalid code", description: `Wrong ${role} code.`, variant: "destructive" });
       setRoleCode("");

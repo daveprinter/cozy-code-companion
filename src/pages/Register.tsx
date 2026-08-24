@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -51,13 +51,13 @@ const Register: React.FC = () => {
     if (error) {
       if (error.message.includes("already registered") || error.message.includes("already been registered")) {
         toast({ title: "Email already exists", description: "Please log in instead. Redirecting..." });
-        setTimeout(() => navigate("/login"), 2000);
+        setTimeout(() => navigate({ to: "/login" }), 2000);
       } else {
         toast({ title: "Registration failed", description: error.message, variant: "destructive" });
       }
     } else {
       toast({ title: "Welcome to NyumbaLink!", description: "Registration successful." });
-      navigate("/dashboard");
+      navigate({ to: "/dashboard" });
     }
   };
 
