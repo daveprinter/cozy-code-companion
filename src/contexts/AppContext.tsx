@@ -45,10 +45,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const managementCode = "0404";
 
-  useEffect(() => { localStorage.setItem("nyumba_apartment_name", apartmentName); }, [apartmentName]);
-  useEffect(() => { localStorage.setItem("nyumba_caretaker_codes", JSON.stringify(caretakerCodes)); }, [caretakerCodes]);
-  useEffect(() => { localStorage.setItem("nyumba_landlord_codes", JSON.stringify(landlordCodes)); }, [landlordCodes]);
-  useEffect(() => { localStorage.setItem("nyumba_notifications", JSON.stringify(notifications)); }, [notifications]);
+  useEffect(() => { if (hydrated) localStorage.setItem("nyumba_apartment_name", apartmentName); }, [apartmentName, hydrated]);
+  useEffect(() => { if (hydrated) localStorage.setItem("nyumba_caretaker_codes", JSON.stringify(caretakerCodes)); }, [caretakerCodes, hydrated]);
+  useEffect(() => { if (hydrated) localStorage.setItem("nyumba_landlord_codes", JSON.stringify(landlordCodes)); }, [landlordCodes, hydrated]);
+  useEffect(() => { if (hydrated) localStorage.setItem("nyumba_notifications", JSON.stringify(notifications)); }, [notifications, hydrated]);
 
   const addCaretakerCode = (code: string) => {
     if (!caretakerCodes.includes(code)) setCaretakerCodes(prev => [...prev, code]);
