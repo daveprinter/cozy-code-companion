@@ -4,12 +4,12 @@ import LandlordDashboardPage from "@/pages/LandlordDashboard";
 export const Route = createFileRoute("/landlord")({
   head: () => ({
     meta: [
-      { title: "Landlord Dashboard — NyumbaStay" },
+      { title: "Landlord Dashboard — NyumbaLink" },
       {
         name: "description",
-        content: "Oversee rent collection, property performance, and caretaker activity from your NyumbaStay landlord dashboard.",
+        content: "Oversee rent collection, property performance, and caretaker activity from your NyumbaLink landlord dashboard.",
       },
-      { property: "og:title", content: "Landlord Dashboard — NyumbaStay" },
+      { property: "og:title", content: "Landlord Dashboard — NyumbaLink" },
       {
         property: "og:description",
         content: "Oversee rent collection, property performance, and caretaker activity.",

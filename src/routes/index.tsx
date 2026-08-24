@@ -4,13 +4,13 @@ import IndexPage from "@/pages/Index";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NyumbaStay — Rental Property Management Made Simple" },
+      { title: "NyumbaLink — Rental Property Management Made Simple" },
       {
         name: "description",
         content:
-          "NyumbaStay connects tenants, caretakers, and landlords. Track rent, report maintenance issues, and manage your rental property in one place.",
+          "NyumbaLink connects tenants, caretakers, and landlords. Track rent, report maintenance issues, and manage your rental property in one place.",
       },
-      { property: "og:title", content: "NyumbaStay — Rental Property Management Made Simple" },
+      { property: "og:title", content: "NyumbaLink — Rental Property Management Made Simple" },
       {
         property: "og:description",
         content:

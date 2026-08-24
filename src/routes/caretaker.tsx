@@ -4,12 +4,12 @@ import CaretakerDashboardPage from "@/pages/CaretakerDashboard";
 export const Route = createFileRoute("/caretaker")({
   head: () => ({
     meta: [
-      { title: "Caretaker Dashboard — NyumbaStay" },
+      { title: "Caretaker Dashboard — NyumbaLink" },
       {
         name: "description",
-        content: "Manage maintenance requests, vacancies, and tenant issues from your NyumbaStay caretaker dashboard.",
+        content: "Manage maintenance requests, vacancies, and tenant issues from your NyumbaLink caretaker dashboard.",
       },
-      { property: "og:title", content: "Caretaker Dashboard — NyumbaStay" },
+      { property: "og:title", content: "Caretaker Dashboard — NyumbaLink" },
       {
         property: "og:description",
         content: "Manage maintenance requests, vacancies, and tenant issues.",
